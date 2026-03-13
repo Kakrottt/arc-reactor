@@ -1,8 +1,25 @@
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export default function Navbar() {
+
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#0a5c3f] text-textlight shadow-md">
+    <nav
+      className={`fixed top-0 w-full z-50 text-textlight shadow-md transition-colors duration-300 ${scrolled ? "bg-[#0f172a]" : "bg-[#0a5c3f]"
+        }`}
+    >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
