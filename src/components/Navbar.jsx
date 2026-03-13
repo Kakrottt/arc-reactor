@@ -42,7 +42,11 @@ export default function Navbar() {
             Projects
           </a>
 
-          <a href="#resume" className="hover:text-accent transition">
+          <a
+            href="https://docs.google.com/document/d/1KXw_-g6hVBGlIiwg7IuGjCZP_UBYWF2U/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-accent transition">
             Resume
           </a>
 
