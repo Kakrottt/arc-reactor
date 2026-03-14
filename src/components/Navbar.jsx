@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 text-textlight shadow-md transition-colors duration-300 ${scrolled ? "bg-[#0f172a]" : "bg-[#0a5c3f]"
+      className={`fixed top-0 w-full z-50 text-textlight shadow-md transition-colors duration-300 ${scrolled ? "bg-[#0f172a]" : "bg-gradient-to-r from-[#0C4129] via-[#176A44] to-[#186E47]"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
