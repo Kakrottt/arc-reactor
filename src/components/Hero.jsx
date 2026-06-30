@@ -83,7 +83,7 @@ export default function Hero() {
           </h1>
 
           <h2 className="text-base sm:text-xl text-reactor font-mono mb-6">
-            Senior Software Engineer · DevOps Engineer
+            Software Engineer · DevOps Engineer
           </h2>
 
           <TypedLine

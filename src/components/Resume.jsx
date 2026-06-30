@@ -45,7 +45,7 @@ export default function Resume() {
 
           {open && (
             <div className="mt-6 text-left bg-surface/60 backdrop-blur-md p-6 rounded-xl border border-line text-muted leading-relaxed">
-              Senior Software Engineer at DevSecCops.ai. AWS Certified
+              Software Engineer at DevSecCops.ai. AWS Certified
               Solutions Architect – Professional with experience building
               Infrastructure-as-Code platforms, automated CI/CD systems,
               Kubernetes infrastructure and cloud automation.
