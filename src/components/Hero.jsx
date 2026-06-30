@@ -62,7 +62,7 @@ export default function Hero() {
       {/* circuit grid + glow orbs */}
       <div className="absolute inset-0 bg-circuit" />
       <div className="absolute -top-40 -left-40 w-[28rem] h-[28rem] rounded-full bg-reactor/10 blur-[100px]" />
-      <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-amber/10 blur-[100px]" />
+      <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-reactor/10 blur-[100px]" />
       <div className="absolute inset-0 bg-scanlines pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
