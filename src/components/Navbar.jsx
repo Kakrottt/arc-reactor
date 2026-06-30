@@ -42,7 +42,7 @@ export default function Navbar() {
           <ArcReactorCore size={28} />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-semibold text-textlight">ajeet@kumar</span>
-            <span className="text-muted text-[11px]">~/devops-and-design</span>
+            <span className="text-muted text-[11px]">~/fullstack-devops</span>
           </span>
         </motion.a>
 
