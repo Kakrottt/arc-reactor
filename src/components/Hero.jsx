@@ -65,14 +65,14 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-10"
+        className="relative z-10 px-4"
       >
 
-        <h1 className="text-6xl font-bold mb-4 text-[#1a1a1a]">
+        <h1 className="text-4xl sm:text-6xl font-bold mb-4 text-[#1a1a1a]">
           Ajeet Kumar
         </h1>
 
-        <h2 className="text-xl text-gray-600 mb-6">
+        <h2 className="text-base sm:text-xl text-gray-600 mb-6">
           Senior Software Engineer | DevOps Engineer
         </h2>
 
@@ -81,7 +81,7 @@ export default function Hero() {
           automated DevOps systems for modern engineering teams.
         </p>
 
-        <div className="flex justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-4">
 
           <motion.a
             whileHover={{ scale: 1.05 }}
