@@ -88,7 +88,7 @@ export default function Hero() {
 
           <TypedLine
             prompt="$"
-            text="provisioning infrastructure, shipping pipelines, designing the interface in between."
+            text="provisioning infrastructure, shipping pipelines, architecting the backend systems that run on them."
             className="text-muted text-sm sm:text-base mb-10 max-w-md min-h-[3.5rem]"
           />
 
