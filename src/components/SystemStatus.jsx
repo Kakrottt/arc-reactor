@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import ArcReactorCore from "./ArcReactorCore"
+import LogoMark from "./LogoMark"
 
-// Sections the reactor reports on, in document order. Hero carries its own
+// Sections the sheet reports on, in document order. Hero carries its own
 // static readout, so the HUD only takes over once it's scrolled out of view.
 const CHANNELS = [
-  { id: "about", label: "CORE: STABLE", hideHud: true },
-  { id: "about-detail", label: "OBSERVING PROFILE" },
-  { id: "projects", label: "DEPLOYING BUILDS" },
-  { id: "contact", label: "LISTENING ON INBOX" },
+  { id: "about", label: "SHEET 01 — CORE", hideHud: true },
+  { id: "about-detail", label: "SHEET 02 — PROFILE", },
+  { id: "projects", label: "SHEET 03 — BUILDS" },
+  { id: "contact", label: "SHEET 04 — CONTACT" },
 ]
 
 export default function SystemStatus() {
@@ -43,9 +43,9 @@ export default function SystemStatus() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.3 }}
-          className="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-3 rounded-full border border-line bg-surface/80 backdrop-blur-md pl-2 pr-4 py-2 shadow-reactor-sm"
+          className="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-3 rounded-md border border-line bg-surface/80 backdrop-blur-md pl-2 pr-4 py-2 shadow-glow-sm"
         >
-          <ArcReactorCore size={26} />
+          <LogoMark size={22} />
           <AnimatePresence mode="wait">
             <motion.span
               key={active.label}
@@ -53,7 +53,7 @@ export default function SystemStatus() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.2 }}
-              className="font-mono text-[11px] tracking-wide text-reactor"
+              className="font-mono text-[11px] tracking-wide text-cyan"
             >
               {active.label}
             </motion.span>

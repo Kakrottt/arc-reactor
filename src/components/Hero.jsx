@@ -1,23 +1,6 @@
 import { motion } from 'framer-motion'
-import { useMemo } from 'react'
-
-import {
-  SiKubernetes,
-  SiDocker,
-  SiTerraform,
-  SiPrometheus,
-  SiGrafana,
-  SiGithubactions,
-  SiGit,
-  SiLinux,
-  SiNginx
-} from 'react-icons/si'
-
-import { FaAws } from 'react-icons/fa'
-import ArcReactorCore from './ArcReactorCore'
+import SchematicDiagram from './SchematicDiagram'
 import TypedLine from './TypedLine'
-
-const ORBIT_DURATION = 30
 
 const metrics = [
   { label: 'uptime', value: '99.98%' },
@@ -26,44 +9,17 @@ const metrics = [
   { label: 'years in prod', value: '3+' }
 ]
 
+const stack = ['AWS', 'Kubernetes', 'Terraform', 'Docker', 'Prometheus', 'Python', 'Node']
+
 export default function Hero() {
-
-  const iconsList = [
-    SiKubernetes,
-    SiDocker,
-    SiTerraform,
-    FaAws,
-    SiPrometheus,
-    SiGrafana,
-    SiGithubactions,
-    SiGit,
-    SiLinux,
-    SiNginx
-  ]
-
-  const icons = useMemo(() => {
-    const radius = 170
-    return iconsList.map((Icon, i) => {
-      const angle = (360 / iconsList.length) * i
-      const rad = (angle * Math.PI) / 180
-      return {
-        Icon,
-        x: Math.cos(rad) * radius,
-        y: Math.sin(rad) * radius
-      }
-    })
-  }, [])
-
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-core pt-28 pb-16"
+      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-ink pt-28 pb-16"
     >
-      {/* circuit grid + glow orbs */}
-      <div className="absolute inset-0 bg-circuit" />
-      <div className="absolute -top-40 -left-40 w-[28rem] h-[28rem] rounded-full bg-reactor/10 blur-[100px]" />
-      <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-reactor/10 blur-[100px]" />
-      <div className="absolute inset-0 bg-scanlines pointer-events-none" />
+      <div className="absolute inset-0 bg-blueprint" />
+      <div className="absolute -top-40 -left-40 w-[28rem] h-[28rem] rounded-full bg-cyan/10 blur-[100px]" />
+      <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-cyan/10 blur-[100px]" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
@@ -74,15 +30,15 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="text-left flex flex-col items-start"
         >
-          <span className="font-mono text-xs text-reactor border border-reactor/40 rounded-full px-3 py-1 mb-6 bg-reactor/5">
-            status: online · core stable
+          <span className="font-mono text-xs text-cyan border border-cyan/40 rounded-md px-3 py-1 mb-6 bg-cyan/5">
+            rev. A · systems online
           </span>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold mb-3 text-textlight tracking-tight">
+          <h1 className="font-display text-5xl sm:text-6xl font-semibold mb-3 text-paper tracking-tight">
             Ajeet Kumar
           </h1>
 
-          <h2 className="text-base sm:text-xl text-reactor font-mono mb-6">
+          <h2 className="text-base sm:text-xl text-cyan font-mono mb-6">
             Software Engineer · DevOps Engineer
           </h2>
 
@@ -94,19 +50,19 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4 mb-10">
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               href="#projects"
-              className="px-6 py-3 rounded-full bg-reactor text-core font-semibold shadow-reactor-sm hover:shadow-reactor transition"
+              className="px-6 py-3 rounded-md bg-cyan text-ink font-semibold shadow-glow-sm hover:shadow-glow transition"
             >
               View Projects
             </motion.a>
 
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               href="https://docs.google.com/document/d/1KXw_-g6hVBGlIiwg7IuGjCZP_UBYWF2U/edit?usp=sharing&ouid=109446728526691684170&rtpof=true&sd=true"
-              className="px-6 py-3 rounded-full border border-reactor/50 text-reactor font-mono hover:bg-reactor/10 transition"
+              className="px-6 py-3 rounded-md border border-cyan/50 text-cyan font-mono hover:bg-cyan/10 transition"
             >
               ./download_resume
             </motion.a>
@@ -114,16 +70,14 @@ export default function Hero() {
 
           {/* tech badges */}
           <div className="flex flex-wrap gap-2 mb-12">
-            {['AWS', 'Kubernetes', 'Terraform', 'Docker', 'Prometheus', 'Python', 'Node'].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className="font-mono text-xs px-3 py-1 rounded-full border border-line text-muted hover:border-reactor hover:text-reactor transition"
-                >
-                  {tech}
-                </span>
-              )
-            )}
+            {stack.map((tech) => (
+              <span
+                key={tech}
+                className="font-mono text-xs px-3 py-1 rounded-md border border-line text-muted hover:border-cyan hover:text-cyan transition"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
 
           {/* metrics dashboard strip */}
@@ -131,41 +85,29 @@ export default function Hero() {
             {metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-lg border border-line bg-surface/60 backdrop-blur-sm px-3 py-3 text-left"
+                className="rounded-md border border-line bg-surface/60 backdrop-blur-sm px-3 py-3 text-left"
               >
-                <div className="text-reactor font-mono text-lg font-semibold">{m.value}</div>
+                <div className="text-cyan font-mono text-lg font-semibold">{m.value}</div>
                 <div className="text-muted text-[11px] font-mono uppercase tracking-wide">{m.label}</div>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* right: arc reactor with orbiting devops icons */}
+        {/* right: the request path, drawn as a schematic */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative flex items-center justify-center h-[420px]"
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="relative flex flex-col items-center justify-center gap-3"
         >
-          <ArcReactorCore size={220} />
-
-          <motion.div
-            className="absolute inset-0"
-            animate={{ rotate: 360 }}
-            transition={{ duration: ORBIT_DURATION, repeat: Infinity, ease: 'linear' }}
-          >
-            {icons.map(({ Icon, x, y }, i) => (
-              <motion.div
-                key={i}
-                className="absolute top-1/2 left-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-surface border border-line text-reactor text-lg shadow-reactor-sm"
-                style={{ x: x - 20, y: y - 20 }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: ORBIT_DURATION, repeat: Infinity, ease: 'linear' }}
-              >
-                <Icon />
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="w-full rounded-md border border-line bg-surface/50 backdrop-blur-sm p-5">
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-mono text-[11px] text-muted tracking-wide">fig. 01 — request path</span>
+              <span className="font-mono text-[11px] text-cyan">live</span>
+            </div>
+            <SchematicDiagram />
+          </div>
         </motion.div>
 
       </div>

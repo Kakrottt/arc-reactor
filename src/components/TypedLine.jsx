@@ -16,7 +16,7 @@ export default function TypedLine({ prompt = "$", text, speed = 35, className = 
 
   return (
     <p className={`font-mono ${className}`}>
-      <span className="text-reactor mr-2">{prompt}</span>
+      <span className="text-cyan mr-2">{prompt}</span>
       <span>{shown}</span>
       <span className="terminal-cursor" />
     </p>

@@ -41,10 +41,10 @@ const techIcons = {
 const statusStyles = {
   deployed: {
     label: "deployed",
-    text: "text-reactor",
-    border: "border-reactor/30",
-    bg: "bg-reactor/5",
-    dot: "bg-reactor",
+    text: "text-cyan",
+    border: "border-cyan/30",
+    bg: "bg-cyan/5",
+    dot: "bg-cyan",
     ping: true,
   },
   active: {
@@ -72,7 +72,7 @@ export default function ProjectCard({ project }) {
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ duration: 0.25 }}
-      className="group relative rounded-xl border border-line bg-surface/70 backdrop-blur-md overflow-hidden hover:border-reactor/50 hover:shadow-reactor-sm transition-all"
+      className="group relative rounded-md border border-line bg-surface/70 backdrop-blur-md overflow-hidden hover:border-cyan/50 hover:shadow-glow-sm transition-all"
     >
       {/* editor title bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-line bg-surface2/80">
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }) {
           </span>
         </div>
         <span
-          className={`flex items-center gap-1.5 font-mono text-[10px] ${status.text} border ${status.border} rounded-full px-2 py-0.5 ${status.bg} shrink-0`}
+          className={`flex items-center gap-1.5 font-mono text-[10px] ${status.text} border ${status.border} rounded-md px-2 py-0.5 ${status.bg} shrink-0`}
         >
           <span className="relative flex h-1.5 w-1.5">
             {status.ping && (
@@ -99,7 +99,7 @@ export default function ProjectCard({ project }) {
 
       <div className="p-6">
         {/* Project Name */}
-        <h3 className="text-xl font-semibold mb-3 text-textlight">
+        <h3 className="text-xl font-semibold mb-3 text-paper">
           {project.name}
         </h3>
 
@@ -113,7 +113,7 @@ export default function ProjectCard({ project }) {
           {project.tech.map((t) => (
             <span
               key={t}
-              className="text-xs px-3 py-1 rounded-full border border-line text-muted font-mono group-hover:border-reactor/30 transition"
+              className="text-xs px-3 py-1 rounded-md border border-line text-muted font-mono group-hover:border-cyan/30 transition"
             >
               {t}
             </span>
@@ -126,7 +126,7 @@ export default function ProjectCard({ project }) {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-reactor hover:text-reactorglow transition flex items-center gap-2 font-mono"
+            className="text-sm font-medium text-cyan hover:text-cyanglow transition flex items-center gap-2 font-mono"
           >
             <SiGithub size={16} />
             view_source()

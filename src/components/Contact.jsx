@@ -10,15 +10,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-20 text-center bg-core overflow-hidden"
+      className="relative py-20 text-center bg-ink overflow-hidden"
     >
-      <div className="absolute inset-0 bg-circuit" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[26rem] h-[26rem] rounded-full bg-reactor/10 blur-[110px]" />
+      <div className="absolute inset-0 bg-blueprint" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[26rem] h-[26rem] rounded-full bg-cyan/10 blur-[110px]" />
 
       <div className="relative z-10">
-        <span className="block font-mono text-xs text-reactor mb-3">~/contact $ ping ajeet</span>
+        <span className="block font-mono text-xs text-cyan mb-3">~/contact $ ping ajeet</span>
 
-        <h2 className="text-3xl font-bold mb-2 text-textlight">Let's Build Something</h2>
+        <h2 className="font-display text-3xl font-semibold mb-2 text-paper">Let's Build Something</h2>
         <p className="text-muted font-mono text-sm mb-8">response_time: usually &lt; 24h</p>
 
         <div className="flex justify-center gap-8 text-3xl text-muted mb-6">
@@ -28,7 +28,7 @@ export default function Contact() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:scale-110 hover:text-reactor transition"
+              className="hover:scale-110 hover:text-cyan transition"
               aria-label={label}
             >
               <Icon />
@@ -38,7 +38,7 @@ export default function Contact() {
 
         <a
           href="mailto:ajeet1270@gmail.com"
-          className="font-mono text-sm text-muted hover:text-reactor transition"
+          className="font-mono text-sm text-muted hover:text-cyan transition"
         >
           ajeet1270@gmail.com
         </a>

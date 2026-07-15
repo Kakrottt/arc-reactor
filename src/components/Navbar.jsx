@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import ArcReactorCore from "./ArcReactorCore"
+import LogoMark from "./LogoMark"
 
 const links = [
   { label: "about", href: "#about" },
@@ -25,8 +25,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 text-textlight transition-all duration-300 border-b ${scrolled
-          ? "bg-[#05080a]/90 backdrop-blur-md border-line"
+      className={`fixed top-0 w-full z-50 text-paper transition-all duration-300 border-b ${scrolled
+          ? "bg-[#0b1f3a]/90 backdrop-blur-md border-line"
           : "bg-transparent border-transparent"
         }`}
     >
@@ -39,9 +39,9 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-3 font-mono text-sm tracking-wide"
         >
-          <ArcReactorCore size={28} />
+          <LogoMark size={28} />
           <span className="hidden sm:flex flex-col leading-none">
-            <span className="font-semibold text-textlight">ajeet@kumar</span>
+            <span className="font-semibold text-paper">ajeet@kumar</span>
             <span className="text-muted text-[11px]">~/fullstack-devops</span>
           </span>
         </motion.a>
@@ -53,9 +53,9 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="hover:text-reactor transition flex items-baseline gap-0.5"
+              className="hover:text-cyan transition flex items-baseline gap-0.5"
             >
-              <span className="text-reactor/60">/</span>{l.label}
+              <span className="text-cyan/60">/</span>{l.label}
             </a>
           ))}
         </div>
@@ -64,8 +64,8 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <span className="hidden lg:flex items-center gap-2 font-mono text-xs text-muted">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-reactor opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-reactor" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan" />
             </span>
             open to work
           </span>
@@ -74,7 +74,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#projects"
-            className="px-4 py-1.5 rounded-full border border-reactor/60 text-reactor text-sm font-mono hover:bg-reactor/10 hover:shadow-reactor-sm transition"
+            className="px-4 py-1.5 rounded-md border border-cyan/60 text-cyan text-sm font-mono hover:bg-cyan/10 hover:shadow-glow-sm transition"
           >
             view_work()
           </motion.a>
