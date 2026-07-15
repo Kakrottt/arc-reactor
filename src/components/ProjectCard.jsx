@@ -75,12 +75,12 @@ export default function ProjectCard({ project }) {
       className="group relative rounded-md border border-line bg-surface/70 backdrop-blur-md overflow-hidden hover:border-cyan/50 hover:shadow-glow-sm transition-all"
     >
       {/* editor title bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-line bg-surface2/80">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-          <span className="ml-2 font-mono text-xs text-muted truncate max-w-[12rem]">
+      <div className="flex items-center justify-between gap-2 px-4 py-2.5 border-b border-line bg-surface2/80">
+        <div className="flex items-center gap-1.5 min-w-0 flex-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-400/70 shrink-0" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70 shrink-0" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-400/70 shrink-0" />
+          <span className="ml-2 font-mono text-xs text-muted truncate">
             {project.name.toLowerCase().replace(/\s+/g, "-")}.yaml
           </span>
         </div>
