@@ -10,37 +10,89 @@ const principles = [
   "automate the pipeline so deploys are boring"
 ]
 
-// Static 50/50 semicircle gauge — the section's thesis (one engineer,
-// two layers) rendered as a dial instead of a decorative divider bar.
+// Instrument-style semicircle gauge — the section's thesis (one engineer,
+// two layers, split evenly) rendered as a live dashboard dial rather than
+// a decorative divider bar. Modeled on a Grafana/Prometheus radial gauge:
+// track + tick marks + a glowing value arc + a numeric center readout.
+const GAUGE_CX = 100
+const GAUGE_CY = 100
+const GAUGE_R = 80
+
+function polar(deg, r = GAUGE_R) {
+  const rad = (deg * Math.PI) / 180
+  return { x: GAUGE_CX + r * Math.cos(rad), y: GAUGE_CY - r * Math.sin(rad) }
+}
+
+function arcPath(fromDeg, toDeg, r = GAUGE_R) {
+  const from = polar(fromDeg, r)
+  const to = polar(toDeg, r)
+  return `M ${from.x} ${from.y} A ${r} ${r} 0 0 1 ${to.x} ${to.y}`
+}
+
+const TICK_ANGLES = [180, 150, 120, 90, 60, 30, 0]
+
 function OwnershipGauge() {
+  const left = polar(180)
+  const right = polar(0)
+  const pin = polar(90)
+
   return (
     <div className="flex flex-col items-center mb-10">
-      <svg viewBox="0 0 200 110" className="w-56 sm:w-64">
-        <path
-          d="M 20 100 A 80 80 0 0 1 100 20"
-          fill="none"
-          stroke="#37e6e0"
-          strokeWidth="10"
-          strokeLinecap="round"
-        />
-        <path
-          d="M 100 20 A 80 80 0 0 1 180 100"
-          fill="none"
-          stroke="#f5b942"
-          strokeWidth="10"
-          strokeLinecap="round"
-        />
-        <circle cx="100" cy="20" r="4.5" fill="#05080a" stroke="#f5f5f3" strokeWidth="1.5" />
-        <text x="20" y="98" textAnchor="start" className="fill-reactor font-mono text-[9px] tracking-wide">
-          PLATFORM
+      <svg viewBox="0 0 200 118" className="w-60 sm:w-72">
+        <defs>
+          <filter id="gaugeGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* background track */}
+        <path d={arcPath(180, 0)} fill="none" stroke="#1c2b2e" strokeWidth="10" strokeLinecap="round" />
+
+        {/* instrument tick marks */}
+        {TICK_ANGLES.map((deg) => {
+          const inner = polar(deg, 82)
+          const outer = polar(deg, 89)
+          return (
+            <line
+              key={deg}
+              x1={inner.x} y1={inner.y} x2={outer.x} y2={outer.y}
+              stroke="#1c2b2e"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          )
+        })}
+
+        {/* value arcs — small gap at apex separates the two halves */}
+        <g filter="url(#gaugeGlow)">
+          <path d={arcPath(180, 92)} fill="none" stroke="#37e6e0" strokeWidth="10" strokeLinecap="round" />
+          <path d={arcPath(88, 0)} fill="none" stroke="#f5b942" strokeWidth="10" strokeLinecap="round" />
+        </g>
+
+        <circle cx={pin.x} cy={pin.y} r="4.5" fill="#05080a" stroke="#f5f5f3" strokeWidth="1.5" />
+
+        {/* center readout */}
+        <text x={GAUGE_CX} y={GAUGE_CY - 22} textAnchor="middle" className="fill-textlight font-mono text-[16px] font-semibold">
+          50 / 50
         </text>
-        <text x="180" y="98" textAnchor="end" className="fill-amber font-mono text-[9px] tracking-wide">
-          SERVICES
-        </text>
-        <text x="100" y="60" textAnchor="middle" className="fill-textlight font-mono text-[10px] tracking-wide">
-          1 ENGINEER
+        <text x={GAUGE_CX} y={GAUGE_CY - 8} textAnchor="middle" className="fill-muted font-mono text-[7px] tracking-[0.2em]">
+          OWNERSHIP SPLIT
         </text>
       </svg>
+
+      {/* legend — plain text below the SVG, never clipped by viewBox math */}
+      <div className="flex items-center gap-6 -mt-1 font-mono text-xs">
+        <span className="flex items-center gap-2 text-reactor">
+          <span className="w-2 h-2 rounded-full bg-reactor shadow-reactor-sm" /> platform
+        </span>
+        <span className="flex items-center gap-2 text-amber">
+          <span className="w-2 h-2 rounded-full bg-amber shadow-[0_0_8px_rgba(245,185,66,0.6)]" /> services
+        </span>
+      </div>
     </div>
   )
 }
