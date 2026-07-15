@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import MatrixRain from './MatrixRain'
 import SchematicDiagram from './SchematicDiagram'
 import TypedLine from './TypedLine'
 
@@ -17,7 +18,10 @@ export default function Hero() {
       id="about"
       className="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-ink pt-28 pb-16"
     >
-      <div className="absolute inset-0 bg-blueprint" />
+      <div className="absolute inset-0">
+        <MatrixRain />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-ink from-40% via-ink/85 via-75% to-ink/55 lg:from-15% lg:via-ink/55 lg:via-45% lg:to-transparent" />
       <div className="absolute -top-40 -left-40 w-[28rem] h-[28rem] rounded-full bg-cyan/10 blur-[100px]" />
       <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-cyan/10 blur-[100px]" />
 

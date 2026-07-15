@@ -9,7 +9,6 @@ export default function Resume() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 bg-ink"
     >
       {/* blueprint backdrop */}
-      <div className="absolute inset-0 bg-blueprint" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full bg-cyan/5 blur-[120px]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

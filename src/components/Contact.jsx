@@ -12,7 +12,6 @@ export default function Contact() {
       id="contact"
       className="relative py-20 text-center bg-ink overflow-hidden"
     >
-      <div className="absolute inset-0 bg-blueprint" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[26rem] h-[26rem] rounded-full bg-cyan/10 blur-[110px]" />
 
       <div className="relative z-10">

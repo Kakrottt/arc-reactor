@@ -12,21 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* graph-paper backdrop — a real drafting grid, not a circuit-board prop */
-.bg-blueprint {
-  background-image:
-    linear-gradient(rgba(111, 214, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(111, 214, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(111, 214, 255, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(111, 214, 255, 0.16) 1px, transparent 1px);
-  background-size:
-    16px 16px,
-    16px 16px,
-    96px 96px,
-    96px 96px;
-  background-position: center;
-}
-
 .text-glow {
   text-shadow: 0 0 18px rgba(111, 214, 255, 0.45);
 }

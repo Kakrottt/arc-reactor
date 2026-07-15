@@ -103,7 +103,6 @@ export default function About() {
       id="about-detail"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink py-24"
     >
-      <div className="absolute inset-0 bg-blueprint" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] rounded-full bg-cyan/5 blur-[120px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6">
