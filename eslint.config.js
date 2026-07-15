@@ -16,6 +16,7 @@ export default [
         window: 'readonly',
         setInterval: 'readonly',
         clearInterval: 'readonly',
+        IntersectionObserver: 'readonly',
       },
       parserOptions: {
         ecmaFeatures: {

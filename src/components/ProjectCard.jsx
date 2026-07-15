@@ -38,7 +38,36 @@ const techIcons = {
   Redis: SiRedis
 }
 
+const statusStyles = {
+  deployed: {
+    label: "deployed",
+    text: "text-reactor",
+    border: "border-reactor/30",
+    bg: "bg-reactor/5",
+    dot: "bg-reactor",
+    ping: true,
+  },
+  active: {
+    label: "in progress",
+    text: "text-amber",
+    border: "border-amber/30",
+    bg: "bg-amber/5",
+    dot: "bg-amber",
+    ping: true,
+  },
+  experimental: {
+    label: "experimental",
+    text: "text-muted",
+    border: "border-line",
+    bg: "bg-surface2/50",
+    dot: "bg-muted",
+    ping: false,
+  },
+}
+
 export default function ProjectCard({ project }) {
+  const status = statusStyles[project.status] ?? statusStyles.deployed
+
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -55,9 +84,16 @@ export default function ProjectCard({ project }) {
             {project.name.toLowerCase().replace(/\s+/g, "-")}.yaml
           </span>
         </div>
-        <span className="flex items-center gap-1.5 font-mono text-[10px] text-reactor border border-reactor/30 rounded-full px-2 py-0.5 bg-reactor/5 shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-reactor" />
-          deployed
+        <span
+          className={`flex items-center gap-1.5 font-mono text-[10px] ${status.text} border ${status.border} rounded-full px-2 py-0.5 ${status.bg} shrink-0`}
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            {status.ping && (
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${status.dot} opacity-75`} />
+            )}
+            <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${status.dot}`} />
+          </span>
+          {status.label}
         </span>
       </div>
 

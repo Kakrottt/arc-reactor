@@ -5,6 +5,7 @@ export const projects = [
       'CLI tool that detects application type and generates Dockerfile, Helm charts and ArgoCD manifests.',
     tech: ['Go', 'Kubernetes', 'Helm', 'ArgoCD'],
     github: 'https://github.com/Kakrottt/gitops-deployment-generator',
+    status: 'deployed',
   },
   {
     name: 'Terraform Infra Builder',
@@ -12,6 +13,7 @@ export const projects = [
       'Generates Terraform infrastructure modules from simple configuration inputs.',
     tech: ['Go', 'Terraform', 'AWS'],
     github: 'https://github.com/Kakrottt/terraform-infra-builder',
+    status: 'deployed',
   },
   {
     name: 'Prometheus Rules Factory',
@@ -19,6 +21,7 @@ export const projects = [
       'Generates Prometheus alerting and recording rules from mixins and jsonnet.',
     tech: ['Prometheus', 'Jsonnet', 'Python'],
     github: 'https://github.com/Kakrottt/prometheus-rules-factory',
+    status: 'active',
   },
   {
     name: 'Kubernetes General Scaler',
@@ -26,11 +29,13 @@ export const projects = [
       'Custom autoscaler scaling workloads using Redis queue length or custom metrics.',
     tech: ['Python', 'Kubernetes', 'Prometheus'],
     github: 'https://github.com/Kakrottt/k8s-scaler',
+    status: 'active',
   },
   {
     name: 'Open Tunnel',
     description: 'Self-hosted tunneling service similar to ngrok.',
     tech: ['Python', 'Networking', 'Docker'],
     github: 'https://github.com/Kakrottt/open-tunnel',
+    status: 'experimental',
   },
 ]
