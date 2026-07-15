@@ -35,7 +35,7 @@ export default function SchematicDiagram({ className = "" }) {
       <svg viewBox="0 0 480 262" className="w-full h-full" role="img" aria-label="Diagram of a request travelling from client to edge, load balancer, cluster and datastore, observed by prometheus and grafana">
         {/* corner registration ticks */}
         {[[4, 4], [476, 4], [4, 258], [476, 258]].map(([x, y], i) => (
-          <g key={i} stroke="#6fd6ff" strokeOpacity="0.5" strokeWidth="1.5">
+          <g key={i} stroke="#5ad1ff" strokeOpacity="0.5" strokeWidth="1.5">
             <line x1={x - (x > 240 ? 10 : -10)} y1={y} x2={x} y2={y} />
             <line x1={x} y1={y - (y > 130 ? 10 : -10)} x2={x} y2={y} />
           </g>
@@ -47,7 +47,7 @@ export default function SchematicDiagram({ className = "" }) {
             key={i}
             d={d}
             fill="none"
-            stroke="#2c4770"
+            stroke="#1c3550"
             strokeWidth="1.5"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -59,7 +59,7 @@ export default function SchematicDiagram({ className = "" }) {
         <motion.path
           d={FEEDBACK}
           fill="none"
-          stroke="#f0a94e"
+          stroke="#ff4d6d"
           strokeOpacity="0.6"
           strokeWidth="1.5"
           strokeDasharray="4 4"
@@ -69,7 +69,7 @@ export default function SchematicDiagram({ className = "" }) {
         />
 
         {/* traveling packet along the primary request path */}
-        <circle r="3" fill="#b9ecff">
+        <circle r="3" fill="#a9ecff">
           <animateMotion
             path="M8,150 L98,150 L188,150 L280,150 L386,150 L416,150"
             dur="4.5s"
@@ -81,7 +81,7 @@ export default function SchematicDiagram({ className = "" }) {
         {/* cluster boundary */}
         <motion.rect
           x={CLUSTER.x} y={CLUSTER.y} width={CLUSTER.w} height={CLUSTER.h}
-          rx="3" fill="rgba(111,214,255,0.04)" stroke="#6fd6ff" strokeOpacity="0.5" strokeWidth="1.5"
+          rx="3" fill="rgba(90,209,255,0.05)" stroke="#5ad1ff" strokeOpacity="0.5" strokeWidth="1.5"
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.25 }}
@@ -94,7 +94,7 @@ export default function SchematicDiagram({ className = "" }) {
           <motion.rect
             key={i}
             x={p.x} y={p.y} width="12" height="12" rx="2"
-            fill="none" stroke="#6fd6ff" strokeOpacity="0.7" strokeWidth="1.3"
+            fill="none" stroke="#5ad1ff" strokeOpacity="0.7" strokeWidth="1.3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.5 + i * 0.08 }}
@@ -109,7 +109,7 @@ export default function SchematicDiagram({ className = "" }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 + i * 0.12 }}
           >
-            <rect x={n.x} y={n.y} width={n.w} height={n.h} rx="3" fill="#12294d" stroke="#2c4770" strokeWidth="1.5" />
+            <rect x={n.x} y={n.y} width={n.w} height={n.h} rx="3" fill="#0e1c2e" stroke="#1c3550" strokeWidth="1.5" />
             <text x={n.x + n.w / 2} y={n.y + n.h / 2 + 3} textAnchor="middle" className="fill-paper font-mono" fontSize="9">
               {n.label}
             </text>
@@ -118,12 +118,12 @@ export default function SchematicDiagram({ className = "" }) {
 
         {/* monitoring nodes */}
         <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.7 }}>
-          <rect x="300" y="225" width="78" height="26" rx="3" fill="#12294d" stroke="#f0a94e" strokeOpacity="0.5" strokeWidth="1.3" />
-          <text x="339" y="241.5" textAnchor="middle" className="fill-amber font-mono" fontSize="8">prometheus</text>
+          <rect x="300" y="225" width="78" height="26" rx="3" fill="#0e1c2e" stroke="#ff4d6d" strokeOpacity="0.5" strokeWidth="1.3" />
+          <text x="339" y="241.5" textAnchor="middle" className="fill-rose font-mono" fontSize="8">prometheus</text>
         </motion.g>
         <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.82 }}>
-          <rect x="398" y="225" width="66" height="26" rx="3" fill="#12294d" stroke="#f0a94e" strokeOpacity="0.5" strokeWidth="1.3" />
-          <text x="431" y="241.5" textAnchor="middle" className="fill-amber font-mono" fontSize="8">grafana</text>
+          <rect x="398" y="225" width="66" height="26" rx="3" fill="#0e1c2e" stroke="#ff4d6d" strokeOpacity="0.5" strokeWidth="1.3" />
+          <text x="431" y="241.5" textAnchor="middle" className="fill-rose font-mono" fontSize="8">grafana</text>
         </motion.g>
 
         {/* dimension bracket under the primary path */}
@@ -132,7 +132,7 @@ export default function SchematicDiagram({ className = "" }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 1 }}
         >
-          <path d="M8,182 L8,188 L416,188 L416,182" fill="none" stroke="#2c4770" strokeWidth="1" />
+          <path d="M8,182 L8,188 L416,188 L416,182" fill="none" stroke="#1c3550" strokeWidth="1" />
           <text x="212" y="200" textAnchor="middle" className="fill-muted font-mono" fontSize="8" letterSpacing="0.1em">
             ONE REQUEST
           </text>

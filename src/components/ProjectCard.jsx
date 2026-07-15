@@ -49,10 +49,10 @@ const statusStyles = {
   },
   active: {
     label: "in progress",
-    text: "text-amber",
-    border: "border-amber/30",
-    bg: "bg-amber/5",
-    dot: "bg-amber",
+    text: "text-rose",
+    border: "border-rose/30",
+    bg: "bg-rose/5",
+    dot: "bg-rose",
     ping: true,
   },
   experimental: {

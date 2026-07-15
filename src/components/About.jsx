@@ -50,7 +50,7 @@ function OwnershipGauge() {
         </defs>
 
         {/* background track */}
-        <path d={arcPath(180, 0)} fill="none" stroke="#2c4770" strokeWidth="10" strokeLinecap="round" />
+        <path d={arcPath(180, 0)} fill="none" stroke="#1c3550" strokeWidth="10" strokeLinecap="round" />
 
         {/* instrument tick marks */}
         {TICK_ANGLES.map((deg) => {
@@ -60,7 +60,7 @@ function OwnershipGauge() {
             <line
               key={deg}
               x1={inner.x} y1={inner.y} x2={outer.x} y2={outer.y}
-              stroke="#2c4770"
+              stroke="#1c3550"
               strokeWidth="2"
               strokeLinecap="round"
             />
@@ -69,11 +69,11 @@ function OwnershipGauge() {
 
         {/* value arcs — small gap at apex separates the two halves */}
         <g filter="url(#gaugeGlow)">
-          <path d={arcPath(180, 92)} fill="none" stroke="#6fd6ff" strokeWidth="10" strokeLinecap="round" />
-          <path d={arcPath(88, 0)} fill="none" stroke="#f0a94e" strokeWidth="10" strokeLinecap="round" />
+          <path d={arcPath(180, 92)} fill="none" stroke="#5ad1ff" strokeWidth="10" strokeLinecap="round" />
+          <path d={arcPath(88, 0)} fill="none" stroke="#ff4d6d" strokeWidth="10" strokeLinecap="round" />
         </g>
 
-        <circle cx={pin.x} cy={pin.y} r="4.5" fill="#0b1f3a" stroke="#eef3fa" strokeWidth="1.5" />
+        <circle cx={pin.x} cy={pin.y} r="4.5" fill="#05090f" stroke="#eaf6ff" strokeWidth="1.5" />
 
         {/* center readout */}
         <text x={GAUGE_CX} y={GAUGE_CY - 22} textAnchor="middle" className="fill-paper font-mono text-[16px] font-semibold">
@@ -89,8 +89,8 @@ function OwnershipGauge() {
         <span className="flex items-center gap-2 text-cyan">
           <span className="w-2 h-2 rounded-full bg-cyan shadow-glow-sm" /> platform
         </span>
-        <span className="flex items-center gap-2 text-amber">
-          <span className="w-2 h-2 rounded-full bg-amber shadow-glow-amber" /> services
+        <span className="flex items-center gap-2 text-rose">
+          <span className="w-2 h-2 rounded-full bg-rose shadow-glow-rose" /> services
         </span>
       </div>
     </div>
@@ -109,7 +109,7 @@ export default function About() {
 
         <span className="block text-center font-mono text-xs text-cyan mb-3">~/about $ cat profile.md</span>
 
-        <h2 className="font-display text-4xl font-semibold mb-8 text-paper text-center">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold mb-8 text-paper text-center uppercase tracking-wide">
           Platform Below. Services Above.
         </h2>
 
@@ -150,14 +150,14 @@ export default function About() {
             className="rounded-md border border-line bg-surface/60 backdrop-blur-sm p-6"
           >
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-2 h-2 rounded-full bg-amber shadow-glow-amber" />
-              <h3 className="font-mono text-sm text-amber tracking-wide">backend_and_reliability.go</h3>
+              <span className="w-2 h-2 rounded-full bg-rose shadow-glow-rose" />
+              <h3 className="font-mono text-sm text-rose tracking-wide">backend_and_reliability.go</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {backendSkills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1.5 rounded-md border border-line text-sm text-paper/90 hover:border-amber hover:text-amber transition font-mono"
+                  className="px-3 py-1.5 rounded-md border border-line text-sm text-paper/90 hover:border-rose hover:text-rose transition font-mono"
                 >
                   {skill}
                 </span>

@@ -17,7 +17,7 @@ export default function Contact() {
       <div className="relative z-10">
         <span className="block font-mono text-xs text-cyan mb-3">~/contact $ ping ajeet</span>
 
-        <h2 className="font-display text-3xl font-semibold mb-2 text-paper">Let's Build Something</h2>
+        <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2 text-paper uppercase tracking-wide">Let's Build Something</h2>
         <p className="text-muted font-mono text-sm mb-8">response_time: usually &lt; 24h</p>
 
         <div className="flex justify-center gap-8 text-3xl text-muted mb-6">

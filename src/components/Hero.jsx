@@ -38,11 +38,11 @@ export default function Hero() {
             rev. A · systems online
           </span>
 
-          <h1 className="font-display text-5xl sm:text-6xl font-semibold mb-3 text-paper tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl font-black mb-3 text-paper tracking-tight uppercase text-glow">
             Ajeet Kumar
           </h1>
 
-          <h2 className="text-base sm:text-xl text-cyan font-mono mb-6">
+          <h2 className="text-base sm:text-xl text-cyan font-mono mb-6 tracking-wide">
             Software Engineer · DevOps Engineer
           </h2>
 

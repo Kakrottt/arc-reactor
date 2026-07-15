@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 @config "../tailwind.config.js";
 
 body {
-  background: #0b1f3a;
-  color: #eef3fa;
+  background: #05090f;
+  color: #eaf6ff;
   font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -13,33 +13,48 @@ html {
 }
 
 .text-glow {
-  text-shadow: 0 0 18px rgba(111, 214, 255, 0.45);
+  text-shadow: 0 0 18px rgba(90, 209, 255, 0.55);
 }
 
 .terminal-cursor::after {
   content: "▍";
   margin-left: 2px;
   animation: blink 1s step-start infinite;
-  color: #6fd6ff;
+  color: #5ad1ff;
 }
 
 ::selection {
-  background: rgba(111, 214, 255, 0.32);
-  color: #0b1f3a;
+  background: rgba(90, 209, 255, 0.32);
+  color: #05090f;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b1f3a;
+  background: #05090f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2c4770;
+  background: #1c3550;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6fd6ff;
+  background: #5ad1ff;
+}
+
+/* holographic blueprint grid — the graph-paper backdrop the wireframe
+   schematics sit on, fixed to the viewport so every section shares one
+   projection surface rather than each panel drawing its own */
+.hud-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(90, 209, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 209, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
 }
 
 /* sheet border — corner registration marks framing the whole viewport,
@@ -49,14 +64,14 @@ html {
   inset: 10px;
   z-index: 40;
   pointer-events: none;
-  border: 1px solid rgba(111, 214, 255, 0.14);
+  border: 1px solid rgba(90, 209, 255, 0.16);
 }
 
 .sheet-corner {
   position: absolute;
   width: 18px;
   height: 18px;
-  border: 1px solid rgba(111, 214, 255, 0.55);
+  border: 1px solid rgba(90, 209, 255, 0.6);
 }
 .sheet-corner--tl {
   top: -1px;
@@ -85,7 +100,7 @@ html {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #6fd6ff;
+  outline: 2px solid #5ad1ff;
   outline-offset: 3px;
   border-radius: 2px;
 }

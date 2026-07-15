@@ -20,7 +20,7 @@ export default function Projects() {
         {/* Title */}
         <span className="block text-center font-mono text-xs text-cyan mb-3">~/projects $ ls -la</span>
 
-        <h2 className="font-display text-4xl font-semibold text-center mb-3 text-paper">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-center mb-3 text-paper uppercase tracking-wide">
           Things I've Shipped
         </h2>
 
@@ -28,7 +28,7 @@ export default function Projects() {
         <p className="text-center font-mono text-xs text-muted mb-12">
           total {projects.length}
           <span className="text-cyan"> · {counts.deployed ?? 0} deployed</span>
-          <span className="text-amber"> · {counts.active ?? 0} in progress</span>
+          <span className="text-rose"> · {counts.active ?? 0} in progress</span>
           {counts.experimental ? <span className="text-muted"> · {counts.experimental} experimental</span> : null}
         </p>
 

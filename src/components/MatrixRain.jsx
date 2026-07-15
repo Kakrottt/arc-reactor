@@ -24,13 +24,13 @@ export default function MatrixRain({ className = "" }) {
     }
 
     function draw() {
-      ctx.fillStyle = "rgba(11, 31, 58, 0.14)"
+      ctx.fillStyle = "rgba(5, 9, 15, 0.14)"
       ctx.fillRect(0, 0, width, height)
 
       ctx.font = `${FONT_SIZE}px 'JetBrains Mono', monospace`
       for (let i = 0; i < drops.length; i++) {
         const char = CHARS[Math.floor(Math.random() * CHARS.length)]
-        ctx.fillStyle = Math.random() > 0.85 ? "rgba(238, 243, 250, 0.9)" : "rgba(111, 214, 255, 0.6)"
+        ctx.fillStyle = Math.random() > 0.85 ? "rgba(234, 246, 255, 0.9)" : "rgba(90, 209, 255, 0.6)"
         ctx.fillText(char, i * FONT_SIZE, drops[i] * FONT_SIZE)
 
         if (drops[i] * FONT_SIZE > height && Math.random() > 0.975) {

@@ -16,7 +16,7 @@ export default function Resume() {
         <span className="block font-mono text-xs text-cyan mb-3">~/resume $ cat ajeet_kumar.pdf</span>
 
         {/* Title */}
-        <h2 className="font-display text-4xl font-semibold mb-6 text-paper">
+        <h2 className="font-display text-3xl sm:text-4xl font-bold mb-6 text-paper uppercase tracking-wide">
           Resume
         </h2>
 

@@ -11,6 +11,7 @@ import BlueprintFrame from './components/BlueprintFrame'
 export default function App() {
   return (
     <>
+      <div className="hud-grid" aria-hidden="true" />
       <BlueprintFrame />
       <Navbar />
       <Hero />
